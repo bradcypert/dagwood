@@ -12,4 +12,9 @@ void build(List<String> arguments) {
     ..findFiles()
     ..parsePosts()
     ..writeParsedPostsToFile();
+
+  Directory('pages').listSync().forEach((element) {
+    var newPath = element.path.replaceFirst('pages', '');
+    File(element.path).copy('build/${newPath}');
+  });
 }

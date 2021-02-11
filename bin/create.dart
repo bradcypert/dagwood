@@ -31,6 +31,9 @@ var pageTemplate = '''<!DOCTYPE html>
       <p class="subtitle">
         My first website with <strong>Bulma</strong>!
       </p>
+      <p>
+        Learn about <a href="./my-favorite-sandwich.html">my favorite sandwich</a>
+      </p>
     </div>
   </section>
   </body>
