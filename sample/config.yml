@@ -1,0 +1,10 @@
+---
+site:
+  title: My New Dagwood Site!
+  description: A Dagwood is a tall multilayered sandwich.
+  author: Your name here!
+  siteUrl: https://www.my-awesome-site.com
+  organization:
+    url: https://www.my-awesome-site.com
+    name: Dag Wooderson
+    logo: ./some/path/to/a/logo

@@ -1,5 +1,29 @@
-import 'package:dagwood/dagwood.dart' as dagwood;
+import './build.dart' as build;
+import './create.dart' as create;
+import './new.dart' as new_item;
+import './help.dart' as help;
 
 void main(List<String> arguments) {
-  print('Hello world: ${dagwood.calculate()}!');
+  if (arguments.isEmpty) {
+    help.printHelp();
+  }
+
+  var action = arguments[0];
+  switch (action) {
+    case 'new':
+      new_item.newItem(arguments);
+      break;
+    case 'create':
+      create.create(arguments);
+      break;
+    case 'build':
+      build.build(arguments);
+      break;
+    case 'help':
+      help.printHelp();
+      break;
+    default:
+      print('Available commands are create, build and help');
+      break;
+  }
 }
