@@ -2,6 +2,7 @@ import './build.dart' as build;
 import './create.dart' as create;
 import './new.dart' as new_item;
 import './help.dart' as help;
+import './serve.dart' as serve;
 
 void main(List<String> arguments) {
   if (arguments.isEmpty) {
@@ -18,6 +19,9 @@ void main(List<String> arguments) {
       break;
     case 'build':
       build.build(arguments);
+      break;
+    case 'serve':
+      serve.serveFiles(arguments);
       break;
     case 'help':
       help.printHelp();
