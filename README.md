@@ -24,6 +24,9 @@ cd my_personal_blog
 
 # Compile the posts, pages, and template and produce HTML
 dagwood build
+
+# Serve your built site on your local network
+dagwood serve
 ```
 
 ### So, how's this all work?
