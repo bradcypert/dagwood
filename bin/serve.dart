@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:http_server/http_server.dart';
 
 Future serveFiles(List<String> arguments) async {
-  if (arguments[1] == '--help') {
+  if (arguments.contains('--help')) {
     print('''
       serve
       --------
