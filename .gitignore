@@ -10,3 +10,5 @@ doc/api/
 
 # commonly used directory for testing projects
 sample/
+
+bin/dagwood.exe
