@@ -10,7 +10,6 @@ class ContentWriteableWriter {
     var outputPath = outputFilename ?? contentsWriteable.file.path;
     var relativePath = outputPath.replaceAll('./', '/');
     var pathSegments = relativePath.split('/');
-    // TODO: .md wont work for everything
     var directoryPath =
         pathSegments.where((element) => !element.contains(RegExp(r'[^.]+$')));
 

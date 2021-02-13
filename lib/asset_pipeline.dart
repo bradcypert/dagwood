@@ -32,7 +32,6 @@ class AssetPipeline {
 
     var path = asset.file.path;
     if (asset.assetType == AssetType.Style) {
-      print(path);
       path = path.replaceFirst(RegExp(r'[^.]+$'), 'css');
     }
 
