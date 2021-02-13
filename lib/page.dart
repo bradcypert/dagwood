@@ -1,6 +1,10 @@
 import 'dart:io';
 
-class Page {
+import 'package:dagwood/content_writeable.dart';
+
+class Page implements ContentsWriteable {
+  @override
   File file;
+  @override
   String contents;
 }

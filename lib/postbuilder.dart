@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dagwood/content_writeable_writer.dart';
 import 'package:dagwood/markdown/markdown_parser.dart';
 import 'package:dagwood/post.dart';
 
@@ -24,29 +25,8 @@ class Postbuilder {
   }
 
   void writeParsedPostsToFile() {
-    ensureDirectoryExists('build');
     var templateString = template.readAsStringSync();
     parsed.forEach((post) {
-      var relativePath = post.file.path.replaceAll('./', '/');
-      var splitRelative = relativePath.split('/');
-      var directoryPath =
-          splitRelative.where((element) => !element.endsWith('.md'));
-      var curPathPart = '';
-      directoryPath.forEach((element) {
-        curPathPart += element;
-        ensureDirectoryExists(curPathPart.replaceAll('.', ''));
-      });
-
-      var fileName = splitRelative.last.replaceAll('.md', '.html');
-      // remove /post from the url / build structure
-      // TODO: @gross could not get replaceAll working for some reason
-      curPathPart = curPathPart
-          .split('/')
-          .where((element) => element != 'posts')
-          .join('/');
-      var file = File('./build/$curPathPart/$fileName');
-      file.createSync();
-
       var metaHtml = post.meta.keys
           .map((key) {
             switch (key) {
@@ -71,14 +51,9 @@ class Postbuilder {
           .replaceAll(
               '{{dagwood:content}}', MarkdownParser.parseString(post.contents))
           .replaceAll('{{dagwood:meta}}', metaHtml);
-      file.writeAsString(injected);
-    });
-  }
-}
+      post.contents = injected;
 
-void ensureDirectoryExists(String path) {
-  var buildDir = Directory('./$path');
-  if (!buildDir.existsSync()) {
-    buildDir.createSync();
+      ContentWriteableWriter.write(post);
+    });
   }
 }

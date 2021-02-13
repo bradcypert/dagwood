@@ -1,13 +1,16 @@
 import 'dart:io';
 
+import 'package:dagwood/content_writeable.dart';
 import 'package:yaml/yaml.dart';
 
 enum PostFormat { Markdown }
 
-class Post {
+class Post implements ContentsWriteable {
+  @override
   File file;
-  PostFormat format = PostFormat.Markdown;
+  @override
   String contents;
+  PostFormat format = PostFormat.Markdown;
   YamlMap meta;
 
   Post({this.file, this.format = PostFormat.Markdown});

@@ -79,19 +79,24 @@ void create(List<String> arguments) {
 
   var name = arguments[1];
 
-  var directory = Directory('./$name');
+  var directory = Directory('$name');
   directory.createSync();
 
   var config = File('./$name/config.yml');
   config.writeAsStringSync(configTemplate);
 
-  var pagesDir = Directory('./$name/pages');
-  var postsDir = Directory('./$name/posts');
+  var pagesDir = Directory('$name/pages');
+  var postsDir = Directory('$name/posts');
+  var assetsDir = Directory('$name/assets');
   pagesDir.createSync();
   postsDir.createSync();
+  assetsDir.createSync();
 
   // write initial posts
-  File('./$name/posts/my-favorite-sandwich.md').writeAsStringSync(postTemplate);
-  File('./$name/pages/index.html').writeAsStringSync(pageTemplate);
-  File('./$name/post-template.html').writeAsStringSync(postHtml);
+  File('$name/posts/my-favorite-sandwich.md').writeAsStringSync(postTemplate);
+  File('$name/pages/index.html').writeAsStringSync(pageTemplate);
+  File('$name/post-template.html').writeAsStringSync(postHtml);
+
+  print(
+      'Generated new Dagwood project in directory: ${directory.absolute.path}');
 }

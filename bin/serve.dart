@@ -41,7 +41,7 @@ Future serveFiles(List<String> arguments) async {
     staticFiles.serveFile(File(indexUri.toFilePath()), request);
   };
 
-  var port = int.parse(flags['port']) ?? 8080;
+  var port = int.parse(flags['port'] ?? '8080');
 
   var server = await HttpServer.bind(InternetAddress.loopbackIPv4, port);
   print('Listening on port ${port}');
