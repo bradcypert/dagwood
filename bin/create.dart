@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:dagwood/dagwood.dart' as dagwood;
-
 var configTemplate = '''---
 site:
   title: My New Dagwood Site!
