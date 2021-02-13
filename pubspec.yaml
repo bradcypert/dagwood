@@ -1,6 +1,6 @@
 name: dagwood
 description: A sample command-line application.
-version: 0.0.1+3
+version: 0.0.1+4
 # homepage: https://www.example.com
 
 environment:

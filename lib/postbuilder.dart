@@ -53,7 +53,8 @@ class Postbuilder {
           .replaceAll('{{dagwood:meta}}', metaHtml);
       post.contents = injected;
 
-      ContentWriteableWriter.write(post);
+      ContentWriteableWriter.write(post,
+          outputFilename: post.file.path.replaceAll(RegExp(r'[^.]+$'), 'html'));
     });
   }
 }
