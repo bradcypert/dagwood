@@ -3,6 +3,8 @@
 
 Dagwood is a static site generator that prides itself on minimal configuration, built in SEO, and ability to quickly product fast-loading websites.
 
+![](https://img.shields.io/github/workflow/status/bradcypert/dagwood/Upload%20Release%20Asset?label=Github%20Actions%20%28CD%29&logo=github)
+
 ### Skills you need to build a successful Dagwood Site
 To build a Dagwood site, you will need some level of proficency with:
 - HTML
